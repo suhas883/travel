@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Travel Bookings - Adventure Awaits | Best Deals on Flights & Hotels</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Embark on your next adventure with Go Travel Bookings! Find the best deals on flights, hotels, and travel packages. Your wanderlust journey starts here.">
+    <meta name="keywords" content="travel booking, adventure travel, flights, hotels, cheap flights, travel deals, vacation packages, trip planning, wanderlust">
+    <meta name="author" content="Go Travel Bookings">
+    
+    <!-- Open Graph for Social Media Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gotravelbookings.com/">
+    <meta property="og:title" content="Go Travel Bookings - Adventure Awaits">
+    <meta property="og:description" content="Discover amazing travel deals and embark on your next adventure. Book flights, hotels, and vacation packages at the best prices!">
+    <meta property="og:image" content="https://placehold.co/1200x630/E9D5FF/6B21A8?text=GoTravelBookings">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gotravelbookings.com/">
+    <meta property="twitter:title" content="Go Travel Bookings - Adventure Awaits">
+    <meta property="twitter:description" content="Find the best deals on flights and hotels for your next trip. Go Travel Bookings helps you explore the world with ease and at the best prices.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/E9D5FF/6B21A8?text=GoTravelBookings">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3f9;
+        }
+        .bg-hero {
+            /* Changed from green to a more appealing blue gradient */
+            background-image: url('https://placehold.co/1920x1080/6366f1/e0e7ff?text=Adventure+Awaits');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link.active {
+            font-weight: 600;
+            color: #6d28d9;
+            border-bottom: 2px solid #6d28d9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm py-4">
+        <div class="container mx-auto px-4 md:px-8 flex items-center justify-between">
+            <a href="#home" class="text-2xl font-bold text-indigo-800 tracking-wide rounded-md transition-transform transform hover:scale-105">
+                Go Travel Bookings
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">About Us</a>
+                <a href="#blog" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Blog</a>
+                <a href="#faq" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">FAQ</a>
+            </nav>
+            <button class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="home" class="bg-hero min-h-[60vh] flex items-center justify-center text-center p-4">
+            <div class="bg-white/80 backdrop-blur-sm p-6 md:p-12 rounded-2xl shadow-xl max-w-2xl mx-auto">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Your Next Adventure Awaits.</h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">Find the best deals on flights and hotels. Travel smart, travel with us.</p>
+                
+                <!-- Search Form -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <div class="flex space-x-2 mb-4">
+                        <button class="search-tab px-4 py-2 text-sm md:text-base font-medium rounded-full transition-all duration-300 active" data-tab="flights">
+                            Flights
+                        </button>
+                        <button class="search-tab px-4 py-2 text-sm md:text-base font-medium rounded-full transition-all duration-300" data-tab="hotels">
+                            Hotels
+                        </button>
+                        <button class="search-tab px-4 py-2 text-sm md:text-base font-medium rounded-full transition-all duration-300" data-tab="packages">
+                            Packages
+                        </button>
+                    </div>
+
+                    <form id="travel-search-form" class="space-y-4">
+                        <!-- Flights Tab Content -->
+                        <div id="flights-tab" class="tab-content">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" id="flight-origin" placeholder="Origin" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="text" id="flight-destination" placeholder="Destination" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="flight-departure" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="flight-return" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Hotels Tab Content (hidden by default) -->
+                        <div id="hotels-tab" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" id="hotel-destination" placeholder="Destination" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="text" id="hotel-guests" placeholder="Guests" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="hotel-checkin" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="hotel-checkout" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Packages Tab Content (hidden by default) -->
+                        <div id="packages-tab" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" id="package-origin" placeholder="Origin" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="text" id="package-destination" placeholder="Destination" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="package-departure" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                                <input type="date" id="package-return" class="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-500 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-300 transform hover:scale-[1.01]">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Why Choose Go Travel Bookings?</h2>
+                <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                    We believe travel should be an adventure from the very first click. Our mission is to make finding and booking your next trip effortless and affordable. We partner with the best in the industry to bring you unbeatable deals.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 bg-purple-50 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                        <div class="text-4xl text-purple-600 mb-4">✈️</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-2">Unbeatable Flight Deals</h3>
+                        <p class="text-gray-600">Find the lowest fares from hundreds of airlines. Our technology searches for the best routes and prices so you don't have to.</p>
+                    </div>
+                    <div class="p-6 bg-purple-50 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                        <div class="text-4xl text-purple-600 mb-4">🏨</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-2">Handpicked Hotels</h3>
+                        <p class="text-gray-600">From luxury resorts to cozy hostels, we have a curated selection of hotels that fit every budget and travel style.</p>
+                    </div>
+                    <div class="p-6 bg-purple-50 rounded-xl shadow-md transition-transform transform hover:scale-105">
+                        <div class="text-4xl text-purple-600 mb-4">✨</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-2">Genuine & Trusted</h3>
+                        <p class="text-gray-600">We are a trusted affiliate partner, committed to transparency and providing genuine value without any hidden costs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Travel Inspiration & Guides</h2>
+                <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                    Read our latest articles to spark your wanderlust and get expert tips for your next trip.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Article 1 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.02] cursor-pointer">
+                        <img src="https://placehold.co/600x400/87BBA2/ffffff?text=Solo+Travel" alt="A person hiking alone in a mountain landscape" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">The Ultimate Guide to Solo Travel</h3>
+                            <p class="text-gray-600 text-sm">Everything you need to know about planning your first solo trip, from choosing a destination to staying safe and meeting new people.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 block">Read more &rarr;</a>
+                        </div>
+                    </article>
+                    <!-- Blog Article 2 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.02] cursor-pointer">
+                        <img src="https://placehold.co/600x400/87BBA2/ffffff?text=Budget+Travel" alt="A person taking a photo of a cityscape at sunset" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">10 Budget-Friendly Destinations for Your Next Vacation</h3>
+                            <p class="text-gray-600 text-sm">Discover amazing places that won't break the bank. Get the most out of your money while experiencing incredible cultures and landscapes.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 block">Read more &rarr;</a>
+                        </div>
+                    </article>
+                    <!-- Blog Article 3 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-[1.02] cursor-pointer">
+                        <img src="https://placehold.co/600x400/87BBA2/ffffff?text=Packing+Tips" alt="A neatly packed suitcase ready for a trip" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">Packing Light: The Traveler's Essential Checklist</h3>
+                            <p class="text-gray-600 text-sm">Learn the art of minimalist packing with our essential checklist. Say goodbye to bulky bags and hello to hassle-free travel.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 block">Read more &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                    We've gathered the most common questions to help you get started.
+                </p>
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="faq-item bg-gray-100 rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-gray-800 hover:bg-gray-200 transition-colors">
+                            <span>How do I search for the best flight deals?</span>
+                            <span class="faq-icon text-gray-600 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-5 text-gray-600 transition-max-height duration-500 ease-in-out">
+                            <p class="pb-5 pt-2">Simply use our search form on the homepage. Enter your origin, destination, and travel dates, and our system will find the best deals from our trusted partners.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-100 rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-gray-800 hover:bg-gray-200 transition-colors">
+                            <span>Is Go Travel Bookings an affiliate site?</span>
+                            <span class="faq-icon text-gray-600 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-5 text-gray-600 transition-max-height duration-500 ease-in-out">
+                            <p class="pb-5 pt-2">Yes, we are a proud affiliate partner. This means we may earn a small commission when you click on a link or make a booking with our partners. This comes at no extra cost to you and helps us keep our service free.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-100 rounded-lg shadow-sm overflow-hidden transition-all duration-300">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-gray-800 hover:bg-gray-200 transition-colors">
+                            <span>Can I book hotels and packages too?</span>
+                            <span class="faq-icon text-gray-600 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-5 text-gray-600 transition-max-height duration-500 ease-in-out">
+                            <p class="pb-5 pt-2">Yes! Our search form has dedicated tabs for hotels and packages. We are continuously expanding our partnerships to bring you a comprehensive travel planning experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-12">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="mb-4">
+                <p class="text-sm">
+                    Go Travel Bookings is an affiliate partner. We may earn a commission on bookings made through our links.
+                </p>
+            </div>
+            <p class="text-sm">&copy; 2025 Go Travel Bookings. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay (hidden by default) -->
+    <div id="loading-overlay" class="fixed inset-0 bg-white/75 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="text-center p-6 bg-white rounded-lg shadow-xl">
+            <div class="animate-spin rounded-full h-12 w-12 border-4 border-t-4 border-indigo-500 border-gray-200 mx-auto mb-4"></div>
+            <p class="text-lg font-medium text-gray-800 loading-message">Searching for deals...</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Helper function to show/hide tabs
+            const showTab = (tabId) => {
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.add('hidden');
+                });
+                document.getElementById(tabId).classList.remove('hidden');
+                
+                document.querySelectorAll('.search-tab').forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-800');
+                });
+                document.querySelector(`[data-tab="${tabId.replace('-tab', '')}"]`).classList.add('bg-indigo-600', 'text-white');
+                document.querySelector(`[data-tab="${tabId.replace('-tab', '')}"]`).classList.remove('bg-gray-200', 'text-gray-800');
+            };
+
+            // Set up search form tabs
+            const searchTabs = document.querySelectorAll('.search-tab');
+            searchTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const tabName = e.target.getAttribute('data-tab');
+                    showTab(`${tabName}-tab`);
+                });
+            });
+
+            // Initial active tab
+            showTab('flights-tab');
+
+            // Handle today's date and a week later for flight search inputs
+            const today = new Date();
+            const todayFormatted = today.toISOString().split('T')[0];
+            const aWeekLater = new Date(today);
+            aWeekLater.setDate(today.getDate() + 7);
+            const aWeekLaterFormatted = aWeekLater.toISOString().split('T')[0];
+
+            document.getElementById('flight-departure').value = todayFormatted;
+            document.getElementById('flight-return').value = aWeekLaterFormatted;
+            
+            // Set up FAQ section
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = item.querySelector('.faq-icon');
+                    
+                    const isExpanded = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
+                    
+                    // Collapse all other answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = '0';
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(ico => {
+                        ico.textContent = '+';
+                        ico.classList.remove('rotate-45');
+                    });
+                    
+                    if (!isExpanded) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.textContent = '-';
+                        icon.classList.add('rotate-45');
+                    }
+                });
+            });
+
+            // Handle form submission
+            const searchForm = document.getElementById('travel-search-form');
+            const loadingOverlay = document.getElementById('loading-overlay');
+
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show loading overlay
+                loadingOverlay.style.display = 'flex';
+                
+                // Get the current active tab
+                const activeTab = document.querySelector('.search-tab.bg-indigo-600').getAttribute('data-tab');
+                const searchParams = {};
+
+                // Collect data based on the active tab
+                if (activeTab === 'flights') {
+                    searchParams.origin = document.getElementById('flight-origin').value;
+                    searchParams.destination = document.getElementById('flight-destination').value;
+                    searchParams.departure_date = document.getElementById('flight-departure').value;
+                    searchParams.return_date = document.getElementById('flight-return').value;
+                    console.log('Searching for flights with:', searchParams);
+                } else if (activeTab === 'hotels') {
+                    searchParams.destination = document.getElementById('hotel-destination').value;
+                    searchParams.guests = document.getElementById('hotel-guests').value;
+                    searchParams.check_in_date = document.getElementById('hotel-checkin').value;
+                    searchParams.check_out_date = document.getElementById('hotel-checkout').value;
+                    console.log('Searching for hotels with:', searchParams);
+                } else if (activeTab === 'packages') {
+                    searchParams.origin = document.getElementById('package-origin').value;
+                    searchParams.destination = document.getElementById('package-destination').value;
+                    searchParams.departure_date = document.getElementById('package-departure').value;
+                    searchParams.return_date = document.getElementById('package-return').value;
+                    console.log('Searching for packages with:', searchParams);
+                }
+                
+                // --- THIS IS THE KEY PART FOR YOUR API ---
+                // You will replace the setTimeout with your Vercel API call.
+                // The Vercel API will then call the Aviasales API.
+                // The URL for your Vercel API might look something like:
+                // `https://<your-vercel-project>.vercel.app/api/search-flights`
+                
+                // Example of a fetch call:
+                // fetch('https://<your-vercel-project>.vercel.app/api/search', {
+                //   method: 'POST',
+                //   headers: {
+                //     'Content-Type': 'application/json',
+                //   },
+                //   body: JSON.stringify({
+                //     type: activeTab,
+                //     params: searchParams
+                //   })
+                // })
+                // .then(response => response.json())
+                // .then(data => {
+                //   console.log('Search results:', data);
+                //   // Here you will handle the data returned from your API
+                //   // and display it on the page.
+                // })
+                // .catch(error => {
+                //   console.error('Error during search:', error);
+                // })
+                // .finally(() => {
+                //   // Hide the loading overlay when the request is complete
+                //   loadingOverlay.style.display = 'none';
+                // });
+                
+                // For now, we'll just simulate a delay
+                setTimeout(() => {
+                    console.log("Search complete. You would now display the results.");
+                    loadingOverlay.style.display = 'none';
+                }, 2000); // 2-second delay for demonstration
+            });
+            
+            // SEO JSON-LD Schema Markup
+            const schemaScript = document.createElement('script');
+            schemaScript.type = 'application/ld+json';
+            schemaScript.textContent = JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@context": "https://schema.org",
+                  "@type": "WebSite",
+                  "name": "Go Travel Bookings",
+                  "url": "https://gotravelbookings.com",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://gotravelbookings.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "How do I search for the best flight deals?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Simply use our search form on the homepage. Enter your origin, destination, and travel dates, and our system will find the best deals from our trusted partners."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Is Go Travel Bookings an affiliate site?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, we are a proud affiliate partner. This means we may earn a small commission when you click on a link or make a booking with our partners. This comes at no extra cost to you and helps us keep our service free."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Can I book hotels and packages too?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! Our search form has dedicated tabs for hotels and packages. We are continuously expanding our partnerships to bring you a comprehensive travel planning experience."
+                      }
+                    }
+                  ]
+                }
+              ]
+            });
+            document.head.appendChild(schemaScript);
+        });
+    </script>
+</body>
+</html>
